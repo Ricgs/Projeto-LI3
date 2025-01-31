@@ -7,6 +7,16 @@
 #include <stdio.h>
 
 
+struct historicos
+{
+    char *id;
+    char *user_id;
+    char *music_id;
+    char *timestamp;
+    char *duration;
+    //char *platform;
+};
+
 HISTORICO criar_historico(void)
 {
     HISTORICO novo_historico = malloc(sizeof(struct historicos));
@@ -20,6 +30,7 @@ HISTORICO criar_historico(void)
     return novo_historico;
 }
 
+///nao encapsulado
 void construir_historico(char *informacao, GHashTable *catalogo, GHashTable *utilizadores)
 {
 
@@ -63,6 +74,7 @@ void construir_historico(char *informacao, GHashTable *catalogo, GHashTable *uti
     //free(platform);
     g_strfreev(tokens); 
 }
+///nao encapsulado
 
 //----------------ID-----------------
 char *get_historico_id(HISTORICO historico)

@@ -6,16 +6,7 @@
 /**
  * @brief Estrutura para armazenar os dados de um utilizador.
  */
-typedef struct utilizadores {
-    char *username;            /**< Nome de utilizador. */
-    char *email;               /**< Email do utilizador. */
-    char *first_name;          /**< Primeiro nome do utilizador. */
-    char *last_name;           /**< Apelido do utilizador. */
-    char *birth_date;          /**< Data de nascimento do utilizador. */
-    char *country;             /**< País do utilizador. */
-    GArray *liked_musics_id;   /**< Lista de IDs de músicas com "like". */
-    //List *historico;           /**< Lista de historicos de utilizador */ <- query6
-} *UTILIZADOR;
+typedef struct utilizadores *UTILIZADOR;
 
 /**
  * @brief Cria um utilizador.

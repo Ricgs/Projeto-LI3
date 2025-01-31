@@ -4,6 +4,10 @@
 #include <glib.h>
 #include "entidades/historicos.h"
 
+typedef struct catalogo *CATALOGO;
+
+CATALOGO create_catalogo_historicos();
+
 /**
  * @brief Cria um catálogo para armazenar históricos.
  *
@@ -24,7 +28,7 @@ GHashTable* create_historicos_catalog();
  * @param historico O histórico do tipo HISTORICO que será adicionado.
  * @param key Uma string representando o ID único do histórico.
  */
-void insert_historico(GHashTable *catalogo, HISTORICO historico, char *key);
+void insert_historico(CATALOGO catalogo, HISTORICO historico, char *key);
 
 /**
  * @brief Obtém um histórico do catálogo pela sua chave.
@@ -37,7 +41,7 @@ void insert_historico(GHashTable *catalogo, HISTORICO historico, char *key);
  * 
  * @return O histórico associado à chave fornecida ou NULL se não for encontrado.
  */
-HISTORICO get_historico_by_key(GHashTable *catalogo, char *key);
+HISTORICO get_historico_by_key(CATALOGO catalogo, char *key);
 
 /**
  * @brief Atualiza um histórico no catálogo.
@@ -48,7 +52,7 @@ HISTORICO get_historico_by_key(GHashTable *catalogo, char *key);
  * @param key Uma string representando o ID único do histórico a ser atualizado.
  * @param historico O novo histórico do tipo HISTORICO que substituirá o antigo.
  */
-void update_historico(GHashTable *catalogo, char *key, HISTORICO historico);
+void update_historico(CATALOGO catalogo, char *key, HISTORICO historico);
 
 /**
  * @brief Libera o catálogo de históricos.
@@ -58,6 +62,8 @@ void update_historico(GHashTable *catalogo, char *key, HISTORICO historico);
  *
  * @param catalogo O catálogo do tipo GHashTable a ser destruído.
  */
-void free_historico_catalog(GHashTable *catalogo);
+void free_historico_catalog(CATALOGO catalogo);
+
+void construir_historico(char *informacao, CATALOGO catalogo);
 
 #endif

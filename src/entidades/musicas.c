@@ -4,6 +4,16 @@
 #include <glib.h>
 #include <stdio.h>
 
+struct musicas {
+    char *id;            /**< ID da música. */
+    char *title;         /**< Título da música. */
+    GArray *artist_id;   /**< IDs dos artistas da música. */
+    char *album_id;      /**< ID do álbum da música. */
+    char *duration;      /**< Duração da música. */
+    char *genre;         /**< Género da música. */
+    char *year;          /**< Ano da música. */
+};
+
 MUSICA criar_musica(void) {
 
   MUSICA nova_musica = malloc(sizeof(struct musicas));
@@ -20,6 +30,7 @@ MUSICA criar_musica(void) {
   return nova_musica;
 }
 
+///nao encapsulado
 void construir_musica(char *informacao, GHashTable *catalogo) 
 {
     char *id;
@@ -70,6 +81,7 @@ void construir_musica(char *informacao, GHashTable *catalogo)
     //free(lyrics);
     g_strfreev(tokens);
 }
+///nao encapsulado
 
 //----------------ID-----------------
 char *get_music_id(MUSICA musica) 

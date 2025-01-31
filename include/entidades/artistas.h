@@ -9,17 +9,7 @@
  * Contém informações sobre o ID, nome, receita por reprodução, constituintes, país,
  * tipo, duração da discografia e duração total.
  */
-typedef struct artistas
-{
-    char *id;                     
-    char *name;                   
-    char *recipe_per_stream;      
-    GArray *id_constituent;       
-    char *country;                
-    char *type;                   
-    int discography_duration;     
-    int total_duration;           
-} *ARTISTA;
+typedef struct artistas *ARTISTA;
 
 /**
  * @brief Cria um novo artista.

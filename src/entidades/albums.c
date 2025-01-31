@@ -4,6 +4,15 @@
 #include <glib.h>
 #include <stdio.h>
 
+struct albums
+{
+    char *id;
+    char *title;
+    GArray *artists_id;
+    char *year;
+    //GArray *producers;
+};
+
 ALBUM criar_album(void)
 {
     ALBUM novo_album = malloc(sizeof(struct albums));
@@ -16,6 +25,7 @@ ALBUM criar_album(void)
     return novo_album;
 }
 
+///nao encaplsulado
 void construir_album(char *informacao, GHashTable *catalogo)
 {
 
@@ -57,6 +67,7 @@ void construir_album(char *informacao, GHashTable *catalogo)
     //free(producers_temp);
     g_strfreev(tokens); 
 }
+///nao encapsulado
 
 //----------------ID-----------------
 char *get_album_id(ALBUM album)

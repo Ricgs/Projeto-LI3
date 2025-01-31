@@ -5,6 +5,18 @@
 #include <stdio.h>
 #include "catalogos/list.h"
 
+struct artistas
+{
+    char *id;                     
+    char *name;                   
+    char *recipe_per_stream;      
+    GArray *id_constituent;       
+    char *country;                
+    char *type;                   
+    int discography_duration;     
+    int total_duration;           
+};
+
 ARTISTA criar_artista(void)
 {
     ARTISTA novo_artista = malloc(sizeof(struct artistas));
@@ -20,6 +32,7 @@ ARTISTA criar_artista(void)
     return novo_artista;
 }
 
+///nao encapsulado
 void construir_artista(char *informacao, GHashTable *catalogo)
 {
 
@@ -67,6 +80,7 @@ void construir_artista(char *informacao, GHashTable *catalogo)
     free(type);
     g_strfreev(tokens); 
 }
+///nao encapsulado
 
 //----------------ID-----------------
 char *get_artista_id(ARTISTA artista)

@@ -8,14 +8,7 @@
  *
  * Contém informações sobre o ID, título, artistas que lançaram o album e ano.
  */
-typedef struct albums
-{
-    char *id;
-    char *title;
-    GArray *artists_id;
-    char *year;
-    //GArray *producers;
-} *ALBUM;
+typedef struct albums *ALBUM;
 
 /**
  @brief Vai buscar o id do album

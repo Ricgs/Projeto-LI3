@@ -4,6 +4,11 @@
 #include <glib.h>
 #include "entidades/artistas.h"
 
+
+typedef struct catalogo *CATALOGO;
+
+CATALOGO create_catalogo_artistas();
+
 /**
  * @brief Cria um catálogo para armazenar artistas.
  *
@@ -24,7 +29,7 @@ GHashTable* create_artistas_catalog();
  * @param artista O artista do tipo ARTISTA que será adicionado.
  * @param key Uma string representando o ID único do artista.
  */
-void insert_artista(GHashTable *catalogo, ARTISTA artista, char *key);
+void insert_artista(CATALOGO catalogo, ARTISTA artista, char *key);
 
 /**
  * @brief Obtém um artista do catálogo pela sua chave.
@@ -37,7 +42,7 @@ void insert_artista(GHashTable *catalogo, ARTISTA artista, char *key);
  * 
  * @return O artista associado à chave fornecida ou NULL se não for encontrado.
  */
-ARTISTA get_artista_by_key(GHashTable *catalogo, char *key);
+ARTISTA get_artista_by_key(CATALOGO catalogo, char *key);
 
 /**
  * @brief Atualiza um artista no catálogo.
@@ -48,7 +53,7 @@ ARTISTA get_artista_by_key(GHashTable *catalogo, char *key);
  * @param key Uma string representando o ID único do artista a ser atualizado.
  * @param artista O novo artista do tipo ARTISTA que substituirá o antigo.
  */
-void update_artista(GHashTable *catalogo, char *key, ARTISTA artista);
+void update_artista(CATALOGO catalogo, char *key, ARTISTA artista);
 
 /**
  * @brief Libera o catálogo de artistas.
@@ -58,6 +63,8 @@ void update_artista(GHashTable *catalogo, char *key, ARTISTA artista);
  *
  * @param catalogo O catálogo do tipo GHashTable a ser destruído.
  */
-void free_artista_catalog(GHashTable *catalogo);
+void free_artista_catalog(CATALOGO catalogo);
+
+void construir_artista(char *informacao, CATALOGO catalogo);
 
 #endif

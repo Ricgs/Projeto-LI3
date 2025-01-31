@@ -4,6 +4,10 @@
 #ifndef CATALOGO_ALBUMS_H
 #define CATALOGO_ALBUMS_H
 
+typedef struct catalogo *CATALOGO;
+
+CATALOGO create_catalogo_albums();
+
 /**
  @brief Cria o catálogo para os albums
  
@@ -22,7 +26,7 @@ GHashTable* create_albums_catalog();
  
  @return 
 */
-void insert_album(GHashTable *catalogo, ALBUM album, char *key);
+void insert_album(CATALOGO catalogo, ALBUM album, char *key);
 
 /**
  @brief Vai buscar o album ao catálogo
@@ -32,7 +36,7 @@ void insert_album(GHashTable *catalogo, ALBUM album, char *key);
  
  @return album pretendido
 */
-ALBUM get_album_by_key(GHashTable *catalogo, char *key);
+ALBUM get_album_by_key(CATALOGO catalogo, char *key);
 
 /**
  @brief atualiza o album na tabela na key especificada
@@ -43,7 +47,7 @@ ALBUM get_album_by_key(GHashTable *catalogo, char *key);
  
  @return 
 */
-void update_album(GHashTable *catalogo, char *key, ALBUM album);
+void update_album(CATALOGO catalogo, char *key, ALBUM album);
 
 /**
  @brief destrói a hash table
@@ -52,6 +56,8 @@ void update_album(GHashTable *catalogo, char *key, ALBUM album);
  
  @return 
 */
-void free_album_catalog(GHashTable *catalogo);
+void free_album_catalog(CATALOGO catalogo);
+
+void construir_album(char *informacao, CATALOGO catalogo);
 
 #endif

@@ -5,6 +5,7 @@
 #include <glib.h>
 #include "entidades/artistas.h"
 #include "entidades/musicas.h"
+#include "catalogos/catalogo_artistas.h"
 #include "manager_dados/parser.h"
 #include "manager_dados/validacao_entidades.h"
 #include "manager_dados/erros_help.h"
@@ -12,14 +13,14 @@
 #include "catalogos/list.h"
 #include "utils/calculos.h"
 
-void processa_linha_artista(GHashTable *artistas, FILE *pasta_erros_artistas, char *linha) {
+void processa_linha_artista(CATALOGO artistas, FILE *pasta_erros_artistas, char *linha) {
     if (artista_valido(linha) == 1)
         construir_artista(linha, artistas);
     else
         fprintf(pasta_erros_artistas, "%s", linha);
 }
 
-void set_artista(GHashTable *artistas, FILE *file) {
+void set_artista(CATALOGO artistas, FILE *file) {
     char *erros_artistas = cria_erros("resultados/artists_errors.csv");
     FILE *pasta_erros_artistas = cria_ficheiro(erros_artistas);
 

@@ -6,6 +6,11 @@
 #include <stdio.h>
 #include "catalogos/list.h"
 
+struct semana {
+    char *semana;           /**< Identificação da semana. */
+    ARTISTA *top_artistas[10]; /**< Array com os top 10 artistas da semana. */
+};
+
 /*
 SEMANA create_semana(const char *semana_id) {
     SEMANA new_semana = malloc(sizeof(struct semana));

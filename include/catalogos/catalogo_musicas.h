@@ -4,6 +4,10 @@
 #include <glib.h>
 #include "entidades/musicas.h"
 
+typedef struct catalogo *CATALOGO;
+
+CATALOGO create_catalogo_musicas();
+
 /**
  * @brief Cria um catálogo para armazenar músicas.
  *
@@ -24,7 +28,7 @@ GHashTable *create_musicas_catalog();
  * @param musica A música do tipo MUSICA que será adicionada.
  * @param key Uma string representando o ID único da música.
  */
-void insert_musica(GHashTable *catalogo, MUSICA musica, char *key);
+void insert_musica(CATALOGO catalogo, MUSICA musica, char *key);
 
 /**
  * @brief Obtém uma música do catálogo pela sua chave.
@@ -37,7 +41,7 @@ void insert_musica(GHashTable *catalogo, MUSICA musica, char *key);
  * 
  * @return A música associada à chave fornecida ou NULL se não for encontrada.
  */
-MUSICA get_musica_by_key(GHashTable *catalogo, char *key);
+MUSICA get_musica_by_key(CATALOGO catalogo, char *key);
 
 /**
  * @brief Atualiza uma música no catálogo.
@@ -48,7 +52,7 @@ MUSICA get_musica_by_key(GHashTable *catalogo, char *key);
  * @param key Uma string representando o ID único da música a ser atualizada.
  * @param musica A nova música do tipo MUSICA que substituirá a antiga.
  */
-void update_musica(GHashTable *catalogo, char *key, MUSICA musica);
+void update_musica(CATALOGO catalogo, char *key, MUSICA musica);
 
 /**
  * @brief Libera o catálogo de músicas.
@@ -58,6 +62,8 @@ void update_musica(GHashTable *catalogo, char *key, MUSICA musica);
  *
  * @param catalogo O catálogo do tipo GHashTable a ser destruído.
  */
-void free_musica_catalog(GHashTable *catalogo);
+void free_musica_catalog(CATALOGO catalogo);
+
+void construir_musica(char *informacao, CATALOGO catalogo);
 
 #endif

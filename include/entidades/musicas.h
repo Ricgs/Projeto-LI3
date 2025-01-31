@@ -6,15 +6,7 @@
 /**
  * @brief Estrutura para armazenar os dados de uma música.
  */
-typedef struct musicas {
-    char *id;            /**< ID da música. */
-    char *title;         /**< Título da música. */
-    GArray *artist_id;   /**< IDs dos artistas da música. */
-    char *album_id;      /**< ID do álbum da música. */
-    char *duration;      /**< Duração da música. */
-    char *genre;         /**< Género da música. */
-    char *year;          /**< Ano da música. */
-} *MUSICA;
+typedef struct musicas *MUSICA;
 
 /**
  * @brief Cria uma música.

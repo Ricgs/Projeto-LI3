@@ -9,15 +9,7 @@
  *
  * Contém informações sobre o ID, id de utilizador, id de música, data e hora da reprodução e duração.
  */
-typedef struct historicos
-{
-    char *id;
-    char *user_id;
-    char *music_id;
-    char *timestamp;
-    char *duration;
-    //char *platform;
-} *HISTORICO;
+typedef struct historicos *HISTORICO;
 
 /**
  * @brief Cria um histórico.

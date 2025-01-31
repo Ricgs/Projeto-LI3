@@ -28,12 +28,21 @@
 
 void exec_batch_mode(char* path, char* comandos)
 {
+    ///nao encapsulado
     GHashTable *utilizadores_hashtable = create_utilizadores_catalog();
     GHashTable *musicas_hashtable = create_musicas_catalog();
     GHashTable *artistas_hashtable = create_artistas_catalog();
     GHashTable *albums_hashtable = create_albums_catalog();
     GHashTable *historicos_hashtable = create_historicos_catalog();
+    ///nao encapsulado
 
+
+    CATALOGO artistas = create_catalogo_artistas();
+    CATALOGO albums = create_catalogo_albums();
+    CATALOGO musicas = create_catalogo_musicas();
+    CATALOGO historicos = create_catalogo_historicos();
+    CATALOGO utilizadores = create_catalogo_utilizadores();
+    
     //PARA LER O USERS.CSV
     size_t tamanho_utilizadores = strlen(path) + strlen("users.csv");
     char *utilizadores_path = malloc(tamanho_utilizadores + sizeof(char) + 1);
@@ -82,7 +91,7 @@ void exec_batch_mode(char* path, char* comandos)
     FILE *qs = fopen(comandos, "r");
     if (qs == NULL) perror("Falha");
         
-    set_artista(artistas_hashtable, artistas_file);
+    set_artista(artistas, artistas_file);
     set_album(albums_hashtable, albums_file);
     set_musica(musicas_hashtable, musicas_file, artistas_hashtable, albums_hashtable);
     set_utilizador(utilizadores_hashtable, utilizadores_file, musicas_hashtable);

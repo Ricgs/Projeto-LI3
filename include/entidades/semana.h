@@ -7,10 +7,7 @@
 /**
  * @brief Estrutura para armazenar os dados de uma semana.
  */
-typedef struct semana {
-    char *semana;           /**< Identificação da semana. */
-    ARTISTA *top_artistas[10]; /**< Array com os top 10 artistas da semana. */
-} *SEMANA;
+typedef struct semana *SEMANA;
 
 /**
  * @brief Cria uma nova semana.

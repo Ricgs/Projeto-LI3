@@ -4,6 +4,17 @@
 #include "utils/calculos.h"
 #include <glib.h>
 
+struct utilizadores {
+    char *username;            /**< Nome de utilizador. */
+    char *email;               /**< Email do utilizador. */
+    char *first_name;          /**< Primeiro nome do utilizador. */
+    char *last_name;           /**< Apelido do utilizador. */
+    char *birth_date;          /**< Data de nascimento do utilizador. */
+    char *country;             /**< País do utilizador. */
+    GArray *liked_musics_id;   /**< Lista de IDs de músicas com "like". */
+    //List *historico;           /**< Lista de historicos de utilizador */ <- query6
+};
+
 UTILIZADOR criar_utilizador(void)
 {
     UTILIZADOR novo_utilizador = malloc(sizeof(struct utilizadores));
@@ -19,6 +30,7 @@ UTILIZADOR criar_utilizador(void)
     return novo_utilizador;
 }
 
+///nao encapsulado
 void construir_utilizador(char *informacao, GHashTable *catalogo)
 {
     char *username;
@@ -69,6 +81,7 @@ void construir_utilizador(char *informacao, GHashTable *catalogo)
     free(liked_musics_id_temp);
     g_strfreev(tokens); 
 }
+///nao encapsulado
 
 //----------------USERNAME-----------------
 char *get_username(UTILIZADOR utilizador)

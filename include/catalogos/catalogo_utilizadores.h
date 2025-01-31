@@ -4,6 +4,10 @@
 #include <glib.h>
 #include "entidades/utilizadores.h"
 
+typedef struct catalogo *CATALOGO;
+
+CATALOGO create_catalogo_utilizadores();
+
 /**
  * @brief Cria um catálogo para armazenar utilizadores.
  *
@@ -24,7 +28,7 @@ GHashTable* create_utilizadores_catalog();
  * @param utilizador O utilizador do tipo UTILIZADOR que será adicionado.
  * @param key Uma string representando o ID único do utilizador.
  */
-void insert_utilizador(GHashTable *catalogo, UTILIZADOR utilizador, char *key);
+void insert_utilizador(CATALOGO catalogo, UTILIZADOR utilizador, char *key);
 
 /**
  * @brief Obtém um utilizador do catálogo pela sua chave.
@@ -37,7 +41,7 @@ void insert_utilizador(GHashTable *catalogo, UTILIZADOR utilizador, char *key);
  * 
  * @return O utilizador associado à chave fornecida ou NULL se não for encontrado.
  */
-UTILIZADOR get_utilizador_by_key(GHashTable *catalogo, char *key);
+UTILIZADOR get_utilizador_by_key(CATALOGO catalogo, char *key);
 
 /**
  * @brief Atualiza um utilizador no catálogo.
@@ -48,7 +52,7 @@ UTILIZADOR get_utilizador_by_key(GHashTable *catalogo, char *key);
  * @param key Uma string representando o ID único do utilizador a ser atualizado.
  * @param utilizador O novo utilizador do tipo UTILIZADOR que substituirá o antigo.
  */
-void update_utilizador(GHashTable *catalogo, char *key, UTILIZADOR utilizador);
+void update_utilizador(CATALOGO catalogo, char *key, UTILIZADOR utilizador);
 
 /**
  * @brief Libera o catálogo de utilizadores.
@@ -58,6 +62,8 @@ void update_utilizador(GHashTable *catalogo, char *key, UTILIZADOR utilizador);
  *
  * @param catalogo O catálogo do tipo GHashTable a ser destruído.
  */
-void free_utilizador_catalog(GHashTable *catalogo);
+void free_utilizador_catalog(CATALOGO catalogo);
+
+void construir_utilizador(char *informacao, CATALOGO catalogo);
 
 #endif
